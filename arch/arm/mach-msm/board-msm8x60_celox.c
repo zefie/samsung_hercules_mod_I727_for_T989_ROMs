@@ -6594,7 +6594,54 @@ static struct snd_set_ampgain init_ampgain[] = {
 		.sp_gainup = 1,
 	},
 #elif defined (CONFIG_USA_MODEL_SGH_T989) || defined (CONFIG_USA_MODEL_SGH_T769)
+  #if defined (CONFIG_USA_MODEL_SGH_I727_AS_T989)
     // SPK
+	[0] = {
+		.in1_gain = 2,
+		.in2_gain = 2,
+		.hp_att = 0,
+		.hp_gainup = 0,
+		.sp_att = 31,
+		.sp_gainup = 0,
+	},
+    // HEADSET
+	[1] = {
+		.in1_gain = 2,
+		.in2_gain = 2,
+		.hp_att = 31,
+		.hp_gainup = 1,
+		.sp_att = 0,
+		.sp_gainup = 0,
+	},
+        // SPK + HEADSET
+	[2] = {
+		.in1_gain = 2,
+		.in2_gain = 2,
+		.hp_att = 1,
+		.hp_gainup = 1,
+		.sp_att = 31,
+		.sp_gainup = 0,
+	},
+	// SPK_CALL
+	[3] = {
+		.in1_gain = 2,
+		.in2_gain = 2,
+		.hp_att = 0,
+		.hp_gainup = 0,
+		.sp_att = 30,
+		.sp_gainup = 1,
+	},
+	// HEADSET_CALL
+	[4] = {
+		.in1_gain = 2,
+		.in2_gain = 2,
+		.hp_att = 31,
+		.hp_gainup = 2,
+		.sp_att = 0,
+		.sp_gainup = 0,
+	},
+  #else
+        // SPK
 	[0] = {
 		.in1_gain = 2,
 		.in2_gain = 2,
@@ -6603,7 +6650,7 @@ static struct snd_set_ampgain init_ampgain[] = {
 		.sp_att = 25,
 		.sp_gainup = 1,
 	},
-    // HEADSET
+        // HEADSET
 	[1] = {
 		.in1_gain = 2,
 		.in2_gain = 2,
@@ -6612,7 +6659,7 @@ static struct snd_set_ampgain init_ampgain[] = {
 		.sp_att = 0,
 		.sp_gainup = 0,
 	},
-    // SPK + HEADSET
+       // SPK + HEADSET
 	[2] = {
 		.in1_gain = 2,
 		.in2_gain = 2,
@@ -6639,6 +6686,7 @@ static struct snd_set_ampgain init_ampgain[] = {
 		.sp_att = 0,
 		.sp_gainup = 0,
 	},	
+  #endif
 #elif defined (CONFIG_EUR_MODEL_GT_I9210)
 	// SPK_MULTIMEDIA
 	[0] = {
