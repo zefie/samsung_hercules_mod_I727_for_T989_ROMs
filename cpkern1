@@ -1,0 +1,26 @@
+#!/bin/sh
+CURDIR=$(pwd)
+
+rm ../ramdisk.ics/lib/modules/*.ko
+
+cp drivers/net/wireless/bcmdhd/dhd.ko ../ramdisk.ics/lib/modules/
+cp drivers/video/backlight/lcd.ko ../ramdisk.ics/lib/modules/
+cp drivers/scsi/scsi_wait_scan.ko ../ramdisk.ics/lib/modules/
+cp drivers/spi/spidev.ko ../ramdisk.ics/lib/modules/
+cp drivers/input/evbug.ko ../ramdisk.ics/lib/modules/
+cp drivers/media/video/gspca/gspca_main.ko ../ramdisk.ics/lib/modules/
+cp drivers/misc/tsif_chrdev.ko ../ramdisk.ics/lib/modules/
+cp drivers/misc/vibetonz/vibrator.ko ../ramdisk.ics/lib/modules/
+cp drivers/misc/msm_tsif.ko ../ramdisk.ics/lib/modules/
+cp drivers/crypto/msm/qcedev.ko ../ramdisk.ics/lib/modules/
+cp drivers/crypto/msm/qce.ko ../ramdisk.ics/lib/modules/
+cp drivers/crypto/msm/qcrypto.ko ../ramdisk.ics/lib/modules/
+cp net/sched/sch_dsmark.ko ../ramdisk.ics/lib/modules/
+cp net/sched/cls_flow.ko ../ramdisk.ics/lib/modules/
+cp arch/arm/mach-msm/dma_test.ko ../ramdisk.ics/lib/modules/
+cp arch/arm/mach-msm/dal_remotetest.ko ../ramdisk.ics/lib/modules/
+cp arch/arm/mach-msm/msm-buspm-dev.ko ../ramdisk.ics/lib/modules/
+cp arch/arm/perfmon/ksapi.ko ../ramdisk.ics/lib/modules/
+cp crypto/ansi_cprng.ko ../ramdisk.ics/lib/modules/
+
+cd $CURDIR

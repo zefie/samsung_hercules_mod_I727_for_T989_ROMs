@@ -1,0 +1,8 @@
+KCFG=$(cat .config)
+make mrproper
+echo "${KCFG}" > .config
+make modules
+./cpkern1
+make
+./cpkern2
+
