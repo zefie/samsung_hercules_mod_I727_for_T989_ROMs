@@ -67,6 +67,20 @@ config CPU_FREQ_DEFAULT_GOV_POWERSAVE
 	  the frequency statically to the lowest frequency supported by
 	  the CPU.
 
+config CPU_FREQ_DEFAULT_GOV_BRAZILIANWAX
+        bool "brazilianwax"
+        select CPU_FREQ_GOV_BRAZILIANWAX
+        select CPU_FREQ_GOV_PERFORMANCE
+        help
+          Use the CPUFreq governor 'brazilianwax' as default.
+
+config CPU_FREQ_DEFAULT_GOV_LULZACTIVE
+        bool "lulzactive"
+        select CPU_FREQ_GOV_LULZACTIVE
+        select CPU_FREQ_GOV_PERFORMANCE
+        help
+          Use the CPUFreq governor 'lulzactive' as default.
+
 config CPU_FREQ_DEFAULT_GOV_USERSPACE
 	bool "userspace"
 	select CPU_FREQ_GOV_USERSPACE
@@ -132,6 +146,28 @@ config CPU_FREQ_GOV_POWERSAVE
 	  module will be called cpufreq_powersave.
 
 	  If in doubt, say Y.
+
+config CPU_FREQ_GOV_BRAZILIANWAX
+        tristate "'brazilianwax' cpufreq governor"
+        depends on CPU_FREQ
+        help
+          brazilianwax' - a "slightly more agressive smart" optimized governor!
+ 
+          If in doubt, say Y.
+
+config CPU_FREQ_GOV_LULZACTIVE
+        tristate "'lulzactive' cpufreq governor"
+        depends on CPU_FREQ
+        help
+          'lulzactive' - a new interactive governor by Tegrak!
+
+          If in doubt, say N.
+
+config CPU_FREQ_GOV_INTELLIDEMAND
+        tristate "'intellidemand' cpufreq governor"
+        depends on CPU_FREQ
+        help
+          'intellidemand' - an intelligent ondemand governor
 
 config CPU_FREQ_GOV_USERSPACE
 	tristate "'userspace' governor for userspace frequency scaling"
