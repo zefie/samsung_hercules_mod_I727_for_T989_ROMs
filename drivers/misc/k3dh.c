@@ -205,7 +205,7 @@ static int k3dh_read_accel_xyz(struct k3dh_data *k3dh, struct k3dh_acc *acc)
                 acc->x = acc->y;
                 acc->y = (temp);
 	}
-#elif defined (CONFIG_USA_MODEL_SGH_I727)
+#elif defined (CONFIG_USA_MODEL_SGH_I727) || defined(CONFIG_USA_MODEL_SGH_I727_AS_T989)
 	if (get_hw_rev() >= 0x04 ) 
 	{
 		acc->x = -(acc->x);
@@ -234,23 +234,15 @@ static int k3dh_read_accel_xyz(struct k3dh_data *k3dh, struct k3dh_acc *acc)
 	}    
 #elif defined (CONFIG_USA_MODEL_SGH_T989)
 	{
-        #if defined(CONFIG_USA_MODEL_SGH_I727_AS_T989)
-        	if (get_hw_rev() >= 0x04 ) 
-	        {
-	                acc->x = -(acc->x);
-	                acc->z = -(acc->z);
-	        }
+	#if defined(CONFIG_USA_MODEL_SGH_T989D)
+		acc->x = -(acc->x);
+		acc->y = acc->y;
+                acc->z = -(acc->z);
 	#else
-		#if defined(CONFIG_USA_MODEL_SGH_T989D)
-			acc->x = -(acc->x);
-			acc->y = acc->y;
-	                acc->z = -(acc->z);
-		#else
-	                s16 temp = acc->x;
-	                acc->x = -(acc->y);
-	                acc->y = (temp);
-	                acc->z = (acc->z);	
-		#endif
+                s16 temp = acc->x;
+                acc->x = -(acc->y);
+                acc->y = (temp);
+                acc->z = (acc->z);	
 	#endif
 	}
 #endif
